@@ -23,7 +23,7 @@ export const Stepper = function () {
   };
 
   return (
-    <section>
+    <section className="stepper">
       <Categorization handleChange={handleChange} expanded={expanded} />
       <CompanyInformation handleChange={handleChange} expanded={expanded} />
       <TruckInformation handleChange={handleChange} expanded={expanded} />

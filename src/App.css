@@ -34,4 +34,9 @@
   border-radius: 10px;
   background-color: #ffffff;
   padding: 6px 64px;
+  cursor: pointer;
+}
+
+.stepper {
+  margin-top: 29px;
 }
