@@ -28,10 +28,8 @@ export const Categorization = function (props) {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <Typography variant="subtitle2" gutterBottom>
-              Transporter type
-            </Typography>
-            <Typography variant="body2" gutterBottom>
+            <span className="categoryheading">Transporter type</span>
+            <Typography variant="body1" className="categorybody">
               Please select your type.
             </Typography>
             <Card sx={{ minWidth: 275 }} className="radio-group-container">
@@ -44,68 +42,144 @@ export const Categorization = function (props) {
                   >
                     <FormControlLabel
                       value="Digging Contractor"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            color: "#3B5E71",
+                            "&.Mui-checked": {
+                              color: "#009378",
+                            },
+                          }}
+                        />
+                      }
                       label="Digging Contractor"
+                      className="radioLabel"
                     />
-                    <Typography variant="subtitle">
+                    <Typography variant="body1" className="radioDescription">
                       Description will be here for the type.
                     </Typography>
                     <FormControlLabel
                       value="Private Transporter"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            color: "#3B5E71",
+                            "&.Mui-checked": {
+                              color: "#009378",
+                            },
+                          }}
+                        />
+                      }
                       label="Private Transporter"
                     />
-                    <Typography variant="subtitle">
+                    <Typography variant="body1" className="radioDescription">
                       Description will be here for the type.
                     </Typography>
                     <FormControlLabel
                       value="Construction and commercial waste transportation company"
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            color: "#3B5E71",
+                            "&.Mui-checked": {
+                              color: "#009378",
+                            },
+                            lineHeight: 11,
+                          }}
+                        />
+                      }
                       label="Construction and commercial waste transportation company"
                     />
-                    <Typography variant="subtitle">
+                    <Typography variant="body1" className="radioDescription">
                       Description will be here for the type.
                     </Typography>
                   </RadioGroup>
                 </FormControl>
               </CardContent>
             </Card>
-            <Button variant="contained" color="success">
+            {/* <label for="html">HTML</label><br/>
+<input type="radio" id="css" name="fav_language" value="CSS" fieldset id="group1"/> */}
+            <Button variant="contained" color="success" className="next">
               Next
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="subtitle2" gutterBottom>
-              Waste Type
-            </Typography>
-            <Typography variant="body2" gutterBottom>
+            <span className="categoryheading">Waste Type</span>
+
+            <Typography variant="body1" className="categorybody">
               Please select waste type.
             </Typography>
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <FormGroup>
                   <FormControlLabel
-                    control={<Checkbox defaultChecked />}
+                    control={
+                      <Checkbox
+                        defaultChecked
+                        sx={{
+                          color: "#3B5E71",
+                          "&.Mui-checked": {
+                            color: "#009378",
+                          },
+                        }}
+                      />
+                    }
                     label="Commercial Activities"
                     color="success"
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={
+                      <Checkbox
+                        sx={{
+                          color: "#3B5E71",
+                          "&.Mui-checked": {
+                            color: "#009378",
+                          },
+                        }}
+                      />
+                    }
                     label="Construction Waste"
                     color="success"
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={
+                      <Checkbox
+                        sx={{
+                          color: "#3B5E71",
+                          "&.Mui-checked": {
+                            color: "#009378",
+                          },
+                        }}
+                      />
+                    }
                     label="Special Medical waste"
                     color="success"
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={
+                      <Checkbox
+                        sx={{
+                          color: "#3B5E71",
+                          "&.Mui-checked": {
+                            color: "#009378",
+                          },
+                        }}
+                      />
+                    }
                     label="Treated medical waste"
                     color="success"
                   />
                   <FormControlLabel
-                    control={<Checkbox />}
+                    control={
+                      <Checkbox
+                        sx={{
+                          color: "#3B5E71",
+                          "&.Mui-checked": {
+                            color: "#009378",
+                          },
+                        }}
+                      />
+                    }
                     label="Sewage Water"
                     color="success"
                   />
