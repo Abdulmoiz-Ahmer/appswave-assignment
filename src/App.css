@@ -91,3 +91,167 @@
   font-size: 19px;
   color: #162d39;
 }
+
+.textField {
+  background: #f7f7f7;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase {
+  height: 36px;
+}
+.textFieldInput {
+  position: relative;
+}
+.info-icon {
+  position: absolute;
+  top: -21px;
+  left: 309px;
+}
+.input-text {
+  width: 330px;
+  height: 36px;
+  background: #f7f7f7;
+  box-shadow: 0px 4px 16px rgba(6, 26, 35, 0.1);
+  border-radius: 8px;
+}
+input[type="text"] {
+  border: none;
+  border-color: transparent;
+}
+.cr-number {
+  margin-top: 12px;
+}
+.border-line {
+  width: 330px;
+  height: 36px;
+  border-top: 2px solid #577485;
+}
+
+.label {
+  width: 330px;
+  height: 36px;
+  border-top: 1px solid #577485;
+  margin-top: 4px;
+}
+
+.input-label {
+  margin-left: 11px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #577485;
+}
+
+.cr-issue {
+  display: flex;
+  gap: 250px;
+  margin-top: 12px;
+}
+
+.cr-input {
+  display: flex;
+  gap: 28px;
+}
+
+.margin {
+  margin-left: -31px;
+}
+
+.license {
+  margin-top: 12px;
+}
+
+.cr-license {
+  display: flex;
+  gap: 118px;
+}
+
+.licenses-date {
+  display: flex;
+  gap: 138px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: #009378;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 0px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  margin-top: 20px;
+  margin-left: 22px;
+  margin-bottom: 12px;
+}
+
+.company-info-btn {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary {
+  border: 1px solid #ccc;
+  display: inline-block;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 0px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.previous-btn {
+  color: #009378;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #009378;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 0px 24px;
+}
+
+.previous {
+  margin-top: 27px;
+}
+
+.tag-element {
+  display: inline;
+  width: 100px;
+  height: 100px;
+  padding: 0px 10px;
+  background: #e8ecef;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #3b5e71;
+  margin-left: 8px;
+}
+
+.tag {
+  border-top: 1px solid #577485;
+  padding-top: 6px;
+}
+
+.label-margin-issue {
+  margin-left: 5px;
+}
+
+.file-card {
+  background: #fafafa;
+  border: 1px solid #beced6;
+  border-radius: 4px;
+}

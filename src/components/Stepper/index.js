@@ -17,22 +17,66 @@ import {
 
 export const Stepper = function () {
   const [expanded, setExpanded] = React.useState(false);
+  const [payload, setPayload] = React.useState({
+    from: "step1",
+    to: "step2",
+  });
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleChange = (step) => (event, isExpanded) => {
+    if (payload.from === step) {
+      setExpanded(isExpanded ? step : false);
+    }
+  };
+
+  const changePayload = (newPayload) => {
+    setPayload({ ...payload, ...newPayload });
+    setExpanded(newPayload.from);
   };
 
   return (
     <section className="stepper">
-      <Categorization handleChange={handleChange} expanded={expanded} />
-      <CompanyInformation handleChange={handleChange} expanded={expanded} />
-      <TruckInformation handleChange={handleChange} expanded={expanded} />
-      <ContainerInformation handleChange={handleChange} expanded={expanded} />
-      <LaborInformation handleChange={handleChange} expanded={expanded} />
-      <RequiredDocuments handleChange={handleChange} expanded={expanded} />
+      <Categorization
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+      <CompanyInformation
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+      <TruckInformation
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+      <ContainerInformation
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+      <LaborInformation
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+
+      <RequiredDocuments
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
       <DeclarationsAndCommitments
         handleChange={handleChange}
         expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
       />
     </section>
   );
