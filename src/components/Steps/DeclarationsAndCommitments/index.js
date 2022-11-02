@@ -1,5 +1,6 @@
 import React from "react";
 import { StepLayout } from "../../StepLayout";
+import Button from "@mui/material/Button";
 
 export const DeclarationsAndCommitments = function (props) {
   const onFinishButtonClick = () => {
@@ -9,8 +10,8 @@ export const DeclarationsAndCommitments = function (props) {
   const onPreviousButtonClick = (event) => {
     event.preventDefault();
     props.changePayload({
-      from: "step5",
-      to: "step6",
+      from: "step7",
+      to: "step8",
     });
   };
 
@@ -24,6 +25,25 @@ export const DeclarationsAndCommitments = function (props) {
       payload={props.payload}
     >
       Content Here
+      <div className="company-info-btn">
+        <Button
+          type="button"
+          variant="contained"
+          className="next"
+          onClick={onFinishButtonClick}
+        >
+          Finish
+        </Button>
+        <div className="previous">
+          <button
+            type="button"
+            className="previous-btn"
+            onClick={onPreviousButtonClick}
+          >
+            Previous
+          </button>
+        </div>
+      </div>
     </StepLayout>
   );
 };
