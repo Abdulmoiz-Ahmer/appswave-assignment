@@ -66,6 +66,13 @@ export const Stepper = function () {
         payload={payload}
       />
 
+      <LocationInformation
+        handleChange={handleChange}
+        expanded={expanded}
+        changePayload={changePayload}
+        payload={payload}
+      />
+
       <RequiredDocuments
         handleChange={handleChange}
         expanded={expanded}

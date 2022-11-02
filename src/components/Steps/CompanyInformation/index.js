@@ -32,7 +32,6 @@ export const CompanyInformation = function (props) {
   } = useForm({});
 
   const onSubmit = (data) => {
-    console.log(data);
     props.changePayload({
       from: "step3",
       to: "step4",

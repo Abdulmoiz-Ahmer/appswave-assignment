@@ -1,7 +1,24 @@
 import React from "react";
+import Button from "@mui/material/Button";
 import { StepLayout } from "../../StepLayout";
 
 export const ContainerInformation = function (props) {
+  const onNextButtonClick = () => {
+    props.changePayload({
+      from: "step5",
+      to: "step6",
+      step4: {},
+    });
+  };
+
+  const onPreviousButtonClick = (event) => {
+    event.preventDefault();
+    props.changePayload({
+      from: "step3",
+      to: "step4",
+    });
+  };
+
   return (
     <StepLayout
       panelNo="step4"
@@ -11,7 +28,26 @@ export const ContainerInformation = function (props) {
       payload={props.payload}
       expanded={props.expanded}
     >
-      Content Here
+      Container Information Content
+      <div className="company-info-btn">
+        <Button
+          type="button"
+          variant="contained"
+          className="next"
+          onClick={onNextButtonClick}
+        >
+          Next
+        </Button>
+        <div className="previous">
+          <button
+            type="button"
+            className="previous-btn"
+            onClick={onPreviousButtonClick}
+          >
+            Previous
+          </button>
+        </div>
+      </div>
     </StepLayout>
   );
 };
