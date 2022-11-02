@@ -295,3 +295,13 @@ input[type="file"] {
   font: 10px Arial, sans-serif;
   background: #e2f1ff;
 }
+
+.MuiAccordionSummary-content.css-1betqn-MuiAccordionSummary-content {
+  align-items: center;
+}
+
+.success-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}

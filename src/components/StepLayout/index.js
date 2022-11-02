@@ -7,66 +7,52 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Check } from "../../assets/svg/check";
 
 function returnClassName(from, panelNo) {
+  console.log("from", from, "panelNo", panelNo);
   const array = [];
 
-  if (from === "step2") {
-    array.push("step1");
-  }
-
-  if (from === "step3") {
-    array.push("step1");
-    array.push("step2");
-  }
-
-  if (from === "step4") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-  }
-
-  if (from === "step5") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-    array.push("step4");
-  }
-
-  if (from === "step6") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-    array.push("step4");
-    array.push("step5");
-  }
-
-  if (from === "step7") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-    array.push("step4");
-    array.push("step5");
-    array.push("step6");
-  }
-
-  if (from === "step8") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-    array.push("step4");
-    array.push("step5");
-    array.push("step6");
-    array.push("step7");
-  }
-
-  if (from === "step9") {
-    array.push("step1");
-    array.push("step2");
-    array.push("step3");
-    array.push("step4");
-    array.push("step5");
-    array.push("step6");
-    array.push("step7");
-    array.push("step8");
+  switch (from) {
+    case "step2":
+      array.push("step1");
+      break;
+    case "step3":
+      array.push("step1");
+      array.push("step2");
+      break;
+    case "step4":
+      array.push("step1");
+      array.push("step2");
+      array.push("step3");
+      break;
+    case "step5":
+      array.push("step1");
+      array.push("step2");
+      array.push("step3");
+      array.push("step4");
+      break;
+    case "step6":
+      array.push("step1");
+      array.push("step2");
+      array.push("step3");
+      array.push("step4");
+      array.push("step5");
+      break;
+    case "step7":
+      array.push("step1");
+      array.push("step2");
+      array.push("step3");
+      array.push("step4");
+      array.push("step5");
+      array.push("step6");
+      break;
+    case "step8":
+      array.push("step1");
+      array.push("step2");
+      array.push("step3");
+      array.push("step4");
+      array.push("step5");
+      array.push("step6");
+      array.push("step7");
+      break;
   }
 
   if (array.includes(panelNo)) {

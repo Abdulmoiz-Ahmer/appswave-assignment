@@ -25,6 +25,8 @@ export const RequiredDocuments = function (props) {
       heading="Required documents"
       handleChange={props.handleChange}
       expanded={props.expanded}
+      changePayload={props.changePayload}
+      payload={props.payload}
       num={props.num}
     >
       Required Documents Content
