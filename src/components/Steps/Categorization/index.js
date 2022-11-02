@@ -33,7 +33,7 @@ export const Categorization = function (props) {
     props.changePayload({
       from: "step2",
       to: "step3",
-      step: data,
+      step1: data,
     });
   };
 
@@ -50,8 +50,8 @@ export const Categorization = function (props) {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <span className="categoryheading">Transporter type</span>
-              <Typography variant="body1" className="categorybody">
+              <span className="category-heading">Transporter type</span>
+              <Typography variant="body1" className="category-body">
                 Please select your type.
               </Typography>
               <Card sx={{ minWidth: 275 }} className="radio-group-container">
@@ -78,7 +78,7 @@ export const Categorization = function (props) {
 
                           <Typography
                             variant="body1"
-                            className="radioDescription"
+                            className="radio-description"
                           >
                             Description will be here for the type.
                           </Typography>
@@ -98,7 +98,7 @@ export const Categorization = function (props) {
                           />
                           <Typography
                             variant="body1"
-                            className="radioDescription"
+                            className="radio-description"
                           >
                             Description will be here for the type.
                           </Typography>
@@ -119,7 +119,7 @@ export const Categorization = function (props) {
                           />
                           <Typography
                             variant="body1"
-                            className="radioDescription"
+                            className="radio-description"
                           >
                             Description will be here for the type.
                           </Typography>
@@ -131,19 +131,14 @@ export const Categorization = function (props) {
                   </FormControl>
                 </CardContent>
               </Card>
-              <Button
-                type="submit"
-                variant="contained"
-                color="success"
-                className="next"
-              >
+              <Button type="submit" variant="contained" className="next">
                 Next
               </Button>
             </Grid>
             <Grid item xs={6}>
-              <span className="categoryheading">Waste Type</span>
+              <span className="category-heading">Waste Type</span>
 
-              <Typography variant="body1" className="categorybody">
+              <Typography variant="body1" className="category-body">
                 Please select waste type.
               </Typography>
               <Card sx={{ minWidth: 275 }}>
@@ -169,7 +164,6 @@ export const Categorization = function (props) {
                             />
                           }
                           label="Commercial Activities"
-                          color="success"
                         />
                       )}
                     />
@@ -194,7 +188,6 @@ export const Categorization = function (props) {
                             />
                           }
                           label="Construction Waste"
-                          color="success"
                         />
                       )}
                     />
@@ -219,7 +212,6 @@ export const Categorization = function (props) {
                             />
                           }
                           label="Special Medical waste"
-                          color="success"
                         />
                       )}
                     />
@@ -243,7 +235,6 @@ export const Categorization = function (props) {
                             />
                           }
                           label="Treated medical waste"
-                          color="success"
                         />
                       )}
                     />
@@ -268,7 +259,6 @@ export const Categorization = function (props) {
                             />
                           }
                           label="Sewage Water"
-                          color="success"
                         />
                       )}
                     />

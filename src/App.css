@@ -54,31 +54,31 @@
   padding: 6px 64px;
 }
 
-.categoryheading {
+.category-heading {
   font-size: 23px;
   font-weight: 600;
   line-height: 40px;
   color: #233f4d;
 }
 
-.categorybody {
+.category-body {
   color: #3b5e71;
   font-style: normal;
 }
 
-.categorybody.css-ahj2mt-MuiTypography-root {
+.category-body.css-ahj2mt-MuiTypography-root {
   font-family: "Source Sans Pro";
   margin-bottom: 8px;
   margin-left: 3px;
 }
 
-.radioDescription {
+.radio-description {
   font-style: normal;
   color: #233f4d;
   padding-left: 10px;
 }
 
-.radioDescription.css-ahj2mt-MuiTypography-root {
+.radio-description.css-ahj2mt-MuiTypography-root {
   font-family: "Source Sans Pro";
   margin-top: -6px;
 }
@@ -92,39 +92,40 @@
   color: #162d39;
 }
 
-.textField {
-  background: #f7f7f7;
-}
-
 .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase {
   height: 36px;
 }
-.textFieldInput {
+
+.text-field-container {
   position: relative;
 }
-.info-icon {
+
+.information-icon {
   position: absolute;
   top: -21px;
   left: 309px;
 }
+
 .input-text {
+  margin-top: 6px;
   width: 330px;
   height: 36px;
   background: #f7f7f7;
   box-shadow: 0px 4px 16px rgba(6, 26, 35, 0.1);
-  border-radius: 8px;
+  border: none;
 }
+
+.error {
+  color: tomato;
+}
+
 input[type="text"] {
   border: none;
   border-color: transparent;
 }
+
 .cr-number {
   margin-top: 12px;
-}
-.border-line {
-  width: 330px;
-  height: 36px;
-  border-top: 2px solid #577485;
 }
 
 .label {
@@ -143,15 +144,27 @@ input[type="text"] {
   color: #577485;
 }
 
+.input-text.transparent-input {
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
 .cr-issue {
   display: flex;
   gap: 250px;
   margin-top: 12px;
 }
 
+.cr-license {
+  display: flex;
+  gap: 118px;
+}
+
 .cr-input {
   display: flex;
   gap: 28px;
+  margin-top: 20px;
 }
 
 .margin {
@@ -160,11 +173,6 @@ input[type="text"] {
 
 .license {
   margin-top: 12px;
-}
-
-.cr-license {
-  display: flex;
-  gap: 118px;
 }
 
 .licenses-date {
@@ -179,18 +187,21 @@ input[type="file"] {
 .custom-file-upload {
   border: 1px solid #ccc;
   display: inline-block;
-  padding: 6px 12px;
   cursor: pointer;
   background: #009378;
   border-radius: 10px;
   color: #ffffff;
-  padding: 0px 24px;
+  padding: 5px 30px;
   font-weight: 600;
   font-size: 16px;
   line-height: 28px;
   margin-top: 20px;
   margin-left: 22px;
   margin-bottom: 12px;
+}
+
+.file-instructions {
+  margin-left: 20px;
 }
 
 .company-info-btn {
@@ -210,6 +221,35 @@ input[type="file"] {
   line-height: 28px;
 }
 
+.previous {
+  margin-top: 27px;
+}
+
+.tag {
+  display: inline;
+  width: 150;
+  height: 150px;
+  padding: 5px 15px;
+  background: #e8ecef;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #3b5e71;
+  margin-left: 8px;
+}
+
+.tags {
+  border-top: 1px solid #577485;
+  padding-top: 6px;
+}
+
+.file-card {
+  background: #fafafa;
+  border: 1px solid #beced6;
+  border-radius: 4px;
+}
+
 .previous-btn {
   color: #009378;
   font-style: normal;
@@ -220,38 +260,6 @@ input[type="file"] {
   border: 1px solid #009378;
   border-radius: 10px;
   background-color: #ffffff;
-  padding: 0px 24px;
-}
-
-.previous {
-  margin-top: 27px;
-}
-
-.tag-element {
-  display: inline;
-  width: 100px;
-  height: 100px;
-  padding: 0px 10px;
-  background: #e8ecef;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 24px;
-  color: #3b5e71;
-  margin-left: 8px;
-}
-
-.tag {
-  border-top: 1px solid #577485;
-  padding-top: 6px;
-}
-
-.label-margin-issue {
-  margin-left: 5px;
-}
-
-.file-card {
-  background: #fafafa;
-  border: 1px solid #beced6;
-  border-radius: 4px;
+  padding: 6px 64px;
+  cursor: pointer;
 }

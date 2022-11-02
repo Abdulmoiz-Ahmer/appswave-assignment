@@ -17,9 +17,37 @@ import mapImage from "../../../assets/images/map.png";
 import { Information } from "../../../assets/svg/information";
 import Button from "@mui/material/Button";
 import Autocomplete from "@mui/material/Autocomplete";
+import { useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 export const CompanyInformation = function (props) {
-  const [value, setValue] = React.useState(null);
+  const [date, setDate] = React.useState(null);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm({});
+
+  const onSubmit = (data) => {
+    console.log(data);
+    props.changePayload({
+      from: "step3",
+      to: "step4",
+      step2: data,
+    });
+  };
+
+  const onPreviousButtonClick = (event) => {
+    event.preventDefault();
+    props.changePayload({
+      from: "step1",
+      to: "step2",
+    });
+  };
+
   return (
     <StepLayout
       panelNo="step2"
@@ -29,343 +57,464 @@ export const CompanyInformation = function (props) {
       changePayload={props.changePayload}
       payload={props.payload}
     >
-      <Typography
-        variant="body1"
-        className="categorybody"
-        sx={{ marginLeft: 4 }}
-      >
-        Please Enter your company information
-      </Typography>
-      <div className="cr-number">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Typography
-          variant="h4"
-          component="h4"
-          sx={{ fontWeight: 700, fontSize: 16 }}
+          variant="body1"
+          className="category-body"
+          sx={{ marginLeft: 4 }}
         >
-          CR number *
+          Please Enter your company information
         </Typography>
-      </div>
-      <div className="textFieldInput">
-        <input
-          type="text"
-          placeholder="Write something"
-          className="input-text"
-        />
-        <div className="info-icon">
-          <Information />
-        </div>
-      </div>
-
-      <Card sx={{ minWidth: 275, marginTop: 5 }}>
-        <CardContent>
+        <div className="cr-number">
           <Typography
             variant="h4"
             component="h4"
             sx={{ fontWeight: 700, fontSize: 16 }}
           >
-            Company name
+            CR number *
           </Typography>
-          <div className="label">
-            <label type="text" className="input-label">
-              Nahdi Pharmacy
-            </label>
+        </div>
+        <div className="text-field-container">
+          <input
+            {...register("cRNumber", { required: true })}
+            type="text"
+            placeholder="Write something"
+            className="input-text"
+          />
+          {errors.cRNumber && (
+            <p className="error" role="alert">
+              CR Number is required
+            </p>
+          )}
+          <div className="information-icon">
+            <Information />
           </div>
-          {/* <Typography>Nahdi Pharmacy</Typography> */}
-          <Typography
-            variant="h4"
-            component="h4"
-            sx={{ fontWeight: 700, fontSize: 16, marginBottom: 1 }}
-          >
-            Manager name
-          </Typography>
+        </div>
 
-          <div className="tag">
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-          </div>
-          <Typography
-            variant="h4"
-            component="h4"
-            sx={{ fontWeight: 700, fontSize: 16, marginBottom: 1 }}
-          >
-            Partner name
-          </Typography>
-
-          <div className="tag">
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-            <span className="tag-element">Ahmed Emad</span>
-          </div>
-          <div>
-            <div className="cr-issue">
-              <Typography
-                variant="h4"
-                component="h4"
-                sx={{ fontWeight: 700, fontSize: 16 }}
-              >
-                CR Issue date
-              </Typography>
-
-              <Typography
-                variant="h4"
-                component="h4"
-                sx={{ fontWeight: 700, fontSize: 16 }}
-              >
-                CR Expiry date
-              </Typography>
+        <Card sx={{ minWidth: 275, marginTop: 5 }}>
+          <CardContent>
+            <Typography
+              variant="h4"
+              component="h4"
+              sx={{ fontWeight: 700, fontSize: 16 }}
+            >
+              Company name
+            </Typography>
+            <div className="label">
+              <label type="text" className="input-label">
+                Nahdi Pharmacy
+              </label>
             </div>
-            <div className="cr-input">
-              <div className="label margin-issue">
-                <label type="text" className="input-label">
-                  Write Something
-                </label>
-              </div>
-              <div className="label">
-                <label type="text" className="input-label">
-                  Write Something
-                </label>
-              </div>
-            </div>
-            <div></div>
-          </div>
-        </CardContent>
-      </Card>
-      <div className="license">
-        <Typography
-          variant="h4"
-          component="h4"
-          sx={{ fontWeight: 700, fontSize: 16 }}
-        >
-          Commercial License Number *
-        </Typography>
-      </div>
-      <div className="textFieldInput">
-        <input
-          type="text"
-          placeholder="Write something"
-          className="input-text"
-        />
-      </div>
+            <Typography
+              variant="h4"
+              component="h4"
+              style={{
+                marginTop: 20,
+              }}
+              sx={{ fontWeight: 700, fontSize: 16, marginBottom: 1 }}
+            >
+              Manager name
+            </Typography>
 
-      <Card sx={{ minWidth: 275, marginTop: 5 }}>
-        <CardContent>
-          <div>
-            <div className="cr-license">
-              <Typography
-                variant="h4"
-                component="h4"
-                sx={{ fontWeight: 700, fontSize: 16 }}
-              >
-                Commercial License Issue date
-              </Typography>
-
-              <Typography
-                variant="h4"
-                component="h4"
-                sx={{ fontWeight: 700, fontSize: 16 }}
-              >
-                Commercial License Expiry date
-              </Typography>
+            <div className="tags">
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
             </div>
+            <Typography
+              variant="h4"
+              component="h4"
+              style={{
+                marginTop: 20,
+              }}
+              sx={{ fontWeight: 700, fontSize: 16, marginBottom: 1 }}
+            >
+              Partner name
+            </Typography>
 
-            <div className="cr-input">
-              `{" "}
-              <div className="label margin">
-                <label type="text" className="input-label">
-                  Write Something
-                </label>
-              </div>
-              <div className="label">
-                <label type="text" className="input-label">
-                  Write Something
-                </label>
-              </div>
+            <div className="tags">
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
+              <span className="tag">Ahmed Emad</span>
             </div>
-          </div>
-        </CardContent>
-      </Card>
-      <div className="license">
-        <Typography
-          variant="h4"
-          component="h4"
-          sx={{ fontWeight: 700, fontSize: 16 }}
-        >
-          National Waste Center License Number *
-        </Typography>
-      </div>
-      <div className="textFieldInput">
-        <input
-          type="text"
-          placeholder="Write something"
-          className="input-text"
-        />
-      </div>
-      <div>
+            <div>
+              <div className="cr-issue">
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  style={{
+                    marginTop: 20,
+                  }}
+                  sx={{ fontWeight: 700, fontSize: 16 }}
+                >
+                  CR Issue date
+                </Typography>
+
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  style={{
+                    marginTop: 20,
+                  }}
+                  sx={{ fontWeight: 700, fontSize: 16 }}
+                >
+                  CR Expiry date
+                </Typography>
+              </div>
+              <div className="cr-input">
+                <div className="label margin-issue">
+                  <div className="text-field-container">
+                    <input
+                      {...register("cRIssueDate")}
+                      type="text"
+                      placeholder="Write something"
+                      className="input-text transparent-input"
+                    />
+                  </div>
+                </div>
+                <div className="label">
+                  <div className="text-field-container">
+                    <input
+                      {...register("cRExpiryDate")}
+                      type="text"
+                      placeholder="Write something"
+                      className="input-text transparent-input"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div></div>
+            </div>
+          </CardContent>
+        </Card>
         <div className="license">
-          <div className="licenses-date">
-            <Typography
-              variant="h4"
-              component="h4"
-              sx={{ fontWeight: 700, fontSize: 16 }}
-            >
-              License Issue date *
-            </Typography>
+          <Typography
+            variant="h4"
+            component="h4"
+            sx={{ fontWeight: 700, fontSize: 16 }}
+          >
+            Commercial License Number *
+          </Typography>
+        </div>
+        <div className="text-field-container">
+          <input
+            {...register("commercialLicenseNumber", { required: true })}
+            type="text"
+            placeholder="Write something"
+            className="input-text"
+          />
+        </div>
+        {errors.commercialLicenseNumber && (
+          <p role="alert" className="error">
+            Commercial License Number is required
+          </p>
+        )}
 
-            <Typography
-              variant="h4"
-              component="h4"
-              sx={{ fontWeight: 700, fontSize: 16 }}
-            >
-              License Expiry date *
-            </Typography>
-          </div>
+        <Card sx={{ minWidth: 275, marginTop: 5 }}>
+          <CardContent>
+            <div>
+              <div className="cr-license">
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  sx={{ fontWeight: 700, fontSize: 16 }}
+                >
+                  Commercial License Issue date
+                </Typography>
 
-          <div className="cr-input">
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
-                label={"write something"}
-                value={value}
-                onChange={(newValue) => {
-                  setValue(newValue);
-                }}
-                renderInput={(params) => (
-                  <TextField
-                    name="founded"
-                    {...params}
-                    // error={!!errors.founded}
-                    // helperText={
-                    //   errors.founded &&
-                    //   String(messages["addBusiness.form.founderDate"])
-                    // }
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  sx={{ fontWeight: 700, fontSize: 16 }}
+                >
+                  Commercial License Expiry date
+                </Typography>
+              </div>
+
+              <div className="cr-input">
+                <div className="text-field-container">
+                  <input
+                    {...register("commercialLicenseIssueDate")}
+                    type="text"
+                    placeholder="Write something"
+                    className="input-text transparent-input"
                   />
-                )}
-              />
-            </LocalizationProvider>
-
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
-                label={"write something"}
-                value={value}
-                onChange={(newValue) => {
-                  setValue(newValue);
-                }}
-                renderInput={(params) => (
-                  <TextField
-                    name="founded"
-                    {...params}
-                    // error={!!errors.founded}
-                    // helperText={
-                    //   errors.founded &&
-                    //   String(messages["addBusiness.form.founderDate"])
-                    // }
+                </div>
+                <div className="text-field-container">
+                  <input
+                    {...register("commercialLicenseExpiryDate")}
+                    type="text"
+                    placeholder="Write something"
+                    className="input-text transparent-input"
                   />
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <div className="license">
+          <Typography
+            variant="h4"
+            component="h4"
+            style={{
+              marginTop: 20,
+            }}
+            sx={{ fontWeight: 700, fontSize: 16 }}
+          >
+            National Waste Center License Number *
+          </Typography>
+        </div>
+        <div className="text-field-container">
+          <input
+            {...register("nationalWasteCenterLicenseNumber", {
+              required: true,
+            })}
+            type="text"
+            placeholder="Write something"
+            className="input-text"
+          />
+        </div>
+        {errors.nationalWasteCenterLicenseNumber && (
+          <p className="error" role="alert">
+            National Waste Center License Number is required
+          </p>
+        )}
+        <div
+          style={{
+            marginTop: 20,
+          }}
+        >
+          <div className="license">
+            <div className="licenses-date">
+              <Typography
+                variant="h4"
+                component="h4"
+                sx={{ fontWeight: 700, fontSize: 16 }}
+              >
+                License Issue date *
+              </Typography>
+              <Typography
+                variant="h4"
+                component="h4"
+                sx={{ fontWeight: 700, fontSize: 16 }}
+              >
+                License Expiry date *
+              </Typography>
+            </div>
+            <div className="cr-input">
+              <div>
+                <Controller
+                  name={"licenseIssueDate"}
+                  control={control}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error },
+                  }) => (
+                    <LocalizationProvider dateAdapter={AdapterMoment}>
+                      <DatePicker
+                        label={"write something"}
+                        control={control}
+                        inputFormat="DD-MM-YYYY"
+                        {...register("licenseIssueDate", {
+                          required: true,
+                        })}
+                        value={value}
+                        onChange={(event) => {
+                          onChange(event);
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            error={!!error}
+                            helperText={error?.message}
+                          />
+                        )}
+                      />
+                    </LocalizationProvider>
+                  )}
+                />
+                {errors.licenseIssueDate && (
+                  <p className="error" role="alert">
+                    License Issue Date is required
+                  </p>
                 )}
-              />
-            </LocalizationProvider>
+              </div>
+              <div>
+                <Controller
+                  name={"licenseExpiryDate"}
+                  control={control}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error },
+                  }) => (
+                    <LocalizationProvider dateAdapter={AdapterMoment}>
+                      <DatePicker
+                        label={"write something"}
+                        control={control}
+                        inputFormat="DD-MM-YYYY"
+                        {...register("licenseExpiryDate", {
+                          required: true,
+                        })}
+                        value={value}
+                        onChange={(event) => {
+                          onChange(event);
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            error={!!error}
+                            helperText={error?.message}
+                          />
+                        )}
+                      />
+                    </LocalizationProvider>
+                  )}
+                />
+                {errors.licenseExpiryDate && (
+                  <p className="error" role="alert">
+                    License Expiry Date is required
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <Typography
-        variant="h4"
-        component="h4"
-        sx={{ fontWeight: 700, fontSize: 16, marginTop: 4 }}
-      >
-        Working area*
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      defaultChecked
-                      sx={{
-                        color: "#3B5E71",
-                        "&.Mui-checked": {
-                          color: "#009378",
-                        },
-                      }}
-                    />
-                  }
-                  label="Alaqiq"
-                  color="success"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        color: "#3B5E71",
-                        "&.Mui-checked": {
-                          color: "#009378",
-                        },
-                      }}
-                    />
-                  }
-                  label="Quibaa"
-                  color="success"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        color: "#3B5E71",
-                        "&.Mui-checked": {
-                          color: "#009378",
-                        },
-                      }}
-                    />
-                  }
-                  label="Alawali"
-                  color="success"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        color: "#3B5E71",
-                        "&.Mui-checked": {
-                          color: "#009378",
-                        },
-                      }}
-                    />
-                  }
-                  label="Uhud"
-                  color="success"
-                />
-              </FormGroup>
-            </CardContent>
-          </Card>
+        <Typography
+          variant="h4"
+          component="h4"
+          sx={{ fontWeight: 700, fontSize: 16, marginTop: 4 }}
+        >
+          Working area*
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <FormGroup>
+                  <Controller
+                    name="alaqiq"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#3B5E71",
+                              "&.Mui-checked": {
+                                color: "#009378",
+                              },
+                            }}
+                          />
+                        }
+                        label="Alaqiq"
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="alaqiq"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#3B5E71",
+                              "&.Mui-checked": {
+                                color: "#009378",
+                              },
+                            }}
+                          />
+                        }
+                        label="Quibaa"
+                        color="success"
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="alawali"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#3B5E71",
+                              "&.Mui-checked": {
+                                color: "#009378",
+                              },
+                            }}
+                          />
+                        }
+                        label="Alawali"
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="uhud"
+                    control={control}
+                    render={({ field }) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            sx={{
+                              color: "#3B5E71",
+                              "&.Mui-checked": {
+                                color: "#009378",
+                              },
+                            }}
+                          />
+                        }
+                        label="Uhud"
+                      />
+                    )}
+                  />
+                </FormGroup>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6}>
+            <img src={mapImage} />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <img src={mapImage} />
-        </Grid>
-      </Grid>
-      <Typography
-        variant="h4"
-        component="h4"
-        sx={{ fontWeight: 700, fontSize: 16, marginTop: 0 }}
-      >
-        Company image
-      </Typography>
-      <Card sx={{ minWidth: 85, marginTop: 2 }} className="file-card">
-        <label htmlFor="file-upload" className="custom-file-upload">
-          Select file
-        </label>
-        <input id="file-upload" type="file" />
-      </Card>
-      <div className="company-info-btn">
-        <Button variant="contained" color="success" className="next">
-          Next
-        </Button>
-        <div className="previous">
-          <button className="previous-btn"> Previous</button>
+        <Typography
+          variant="h4"
+          component="h4"
+          sx={{ fontWeight: 700, fontSize: 16, marginTop: 0 }}
+        >
+          Company image
+        </Typography>
+        <Card sx={{ minWidth: 85, marginTop: 2 }} className="file-card">
+          <label htmlFor="file-upload" className="custom-file-upload">
+            Select file
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            {...register("file")}
+            accept=".png, .jpeg"
+          />
+          <label className="file-instructions">
+            Select Png,Jpeg maximum 5Mb image
+          </label>
+        </Card>
+        <div className="company-info-btn">
+          <Button type="submit" variant="contained" className="next">
+            Next
+          </Button>
+          <div className="previous">
+            <button
+              type="button"
+              className="previous-btn"
+              onClick={onPreviousButtonClick}
+            >
+              Previous
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     </StepLayout>
   );
 };
