@@ -282,7 +282,7 @@ input[type="file"] {
   font: 10px Arial, sans-serif;
 }
 
-.numberActive {
+.active-circle {
   border-radius: 50%;
   width: 10px;
   height: 10px;

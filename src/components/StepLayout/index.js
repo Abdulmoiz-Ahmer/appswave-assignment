@@ -91,7 +91,7 @@ export const StepLayout = function (props) {
         <div
           className={
             props.expanded === props.panelNo
-              ? "numberActive"
+              ? "active-circle"
               : returnClassName(props?.payload?.from, props.panelNo)
           }
         >
