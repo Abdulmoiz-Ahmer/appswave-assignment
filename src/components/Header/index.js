@@ -8,7 +8,9 @@ export const Header = function () {
         <h2 className="heading">Obtaining Transporter Qualification Service</h2>
         <NavLink />
       </div>
-      <button className="rating-button">Rate service</button>
+      <button className="rating-button" data-testid="ratingBtn">
+        Rate service
+      </button>
     </header>
   );
 };
