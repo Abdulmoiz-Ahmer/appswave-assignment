@@ -27,6 +27,7 @@ export const LocationInformation = function (props) {
       expanded={props.expanded}
       changePayload={props.changePayload}
       payload={props.payload}
+      num={props.num}
     >
       Location Information Content
       <div className="company-info-btn">

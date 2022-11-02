@@ -27,6 +27,7 @@ export const ContainerInformation = function (props) {
       changePayload={props.changePayload}
       payload={props.payload}
       expanded={props.expanded}
+      num={props.num}
     >
       Container Information Content
       <div className="company-info-btn">

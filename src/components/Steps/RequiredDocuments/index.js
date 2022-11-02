@@ -25,6 +25,7 @@ export const RequiredDocuments = function (props) {
       heading="Required documents"
       handleChange={props.handleChange}
       expanded={props.expanded}
+      num={props.num}
     >
       Required Documents Content
       <div className="company-info-btn">

@@ -18,7 +18,7 @@ export const LaborInformation = function (props) {
       to: "step5",
     });
   };
-  
+
   return (
     <StepLayout
       panelNo="step5"
@@ -27,6 +27,7 @@ export const LaborInformation = function (props) {
       expanded={props.expanded}
       changePayload={props.changePayload}
       payload={props.payload}
+      num={props.num}
     >
       Labor Information Content
       <div className="company-info-btn">

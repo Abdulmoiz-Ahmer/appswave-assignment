@@ -45,6 +45,7 @@ export const Categorization = function (props) {
       expanded={props.expanded}
       changePayload={props.changePayload}
       payload={props.payload}
+      num={props.num}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box sx={{ flexGrow: 1 }}>

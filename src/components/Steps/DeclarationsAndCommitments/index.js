@@ -23,6 +23,7 @@ export const DeclarationsAndCommitments = function (props) {
       expanded={props.expanded}
       changePayload={props.changePayload}
       payload={props.payload}
+      num={props.num}
     >
       Content Here
       <div className="company-info-btn">

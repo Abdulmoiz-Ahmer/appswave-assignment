@@ -55,6 +55,7 @@ export const CompanyInformation = function (props) {
       expanded={props.expanded}
       changePayload={props.changePayload}
       payload={props.payload}
+      num={props.num}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography
